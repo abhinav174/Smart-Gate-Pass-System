@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Teacher Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      background-image: url(https://t4.ftcdn.net/jpg/05/03/87/35/360_F_503873538_dKJiRRgdNdiH9HJrnqvTpqDyN28RzZ4M.jpg);
+      background-size: cover;
+    }
+
+    .container {
+      width: 80%;
+      margin: 0 auto;
+      margin-top: 30px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .header h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .header h2 {
+      font-size: 18px;
+    }
+
+    .logout-btn {
+      text-decoration: none;
+      color: #fff;
+      background-color: #3a86ff;
+      padding: 5px 10px;
+      border-radius: 3px;
+      margin-top: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    .action-buttons { 
+      display: flex; 
+      justify-content: space-around; 
+    }
+
+    .approve-btn,
+    .reject-btn {
+      text-decoration: none;
+      padding: 5px 10px;
+      border-radius: 3px;
+      margin: 5px;
+    }
+
+    .approve-btn {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .reject-btn {
+      background-color: #f44336;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Teacher Dashboard</h1>
+      <h2>Pending Gate Pass Requests</h2>
+      <a href="/logout" class="logout-btn">Logout</a>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Student Name</th>
+          <th>Student ID</th>
+          <th>Reason</th>
+          <th>Request ID</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for request in pending_requests %}
+          <tr>
+            <td>{{ request['student_name'] }}</td>
+            <td>{{ request['student_id'] }}</td>
+            <td>{{ request['reason'] }}</td>
+            <td>{{ request['request_id'] }}</td>
+            <td>{{ request['status'] }}</td>
+            {% if request['status'] == 'Pending' %}
+              <td class="action-buttons"> 
+                <a href="/teacher/approve_request/{{ request['request_id'] }}" class="approve-btn">Approve</a> 
+                <a href="/teacher/reject_request/{{ request['request_id'] }}" class="reject-btn">Reject</a>
+              </td>
+            {% else %}
+              <td>{{ request['status'] }}</td>
+            {% endif %}
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

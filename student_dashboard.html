@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh; 
+      background-image: url(https://t4.ftcdn.net/jpg/05/03/87/35/360_F_503873538_dKJiRRgdNdiH9HJrnqvTpqDyN28RzZ4M.jpg);
+      background-size: cover;
+    }
+
+    header.nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column; 
+      padding: 20px;
+      width: 100%; 
+    }
+
+    header.nav h1 {
+      font-size: 35px;
+      color: #333;
+    }
+
+    header.nav p {
+      font-size: 18px;
+      color: #14213d;
+      margin-top: 5px; 
+      font-weight: 500;
+      padding: 20px;
+      border-radius: 4px;
+    }
+
+    header.nav p:hover{
+        background-color: #fff;
+        color:#333
+    }
+
+    nav.links {
+      display: flex; /* Changed to flex */
+      justify-content: center; 
+      align-items: center; 
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      width: 100%; 
+      max-width: 600px; 
+      margin: 20px auto; 
+    }
+
+    nav.links a.link {
+      display: inline-block; /* Changed to inline-block */
+      padding: 15px 20px;
+      color: #333;
+      font-size: 16px;
+      text-decoration: none;
+      transition: all 0.3s ease-in-out;
+      margin: 0 10px; /* Added margin for spacing */
+    }
+
+    nav.links a.link:hover {
+      background-color: #023e8a;
+      color: #fff;
+    }
+
+    .error {
+      color: red;
+      font-weight: bold;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <h1>Student Dashboard</h1>
+    <p>Welcome, {{ session.get('username') }}</p> 
+  </header>
+  <nav class="links">
+    <a href="/student/request_gate_pass" class="link">Request Gate Pass</a>
+    {% if error %}
+      <p class="error">{{ error }}</p>
+    {% endif %}
+    <a href="/student/generate_qr_code" class="link">Generate QR Code</a>
+    <a href="/logout" class="link">Logout</a>
+  </nav>
+</body>
+</html>
