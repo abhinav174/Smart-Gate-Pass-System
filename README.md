@@ -38,3 +38,6 @@ Integrate with a database for persistent storage of user data and gate pass requ
 Implement email notifications for gate pass approvals/rejections.
 Add functionalities for logging gate pass usage (entry/exit times).
 Enhance the UI with better styling and user experience elements.
+
+![image](https://github.com/user-attachments/assets/6a2a495a-13c5-4b08-a4b5-71a0892cf300)
+
