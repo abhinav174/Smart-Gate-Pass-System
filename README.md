@@ -39,5 +39,20 @@ Implement email notifications for gate pass approvals/rejections.
 Add functionalities for logging gate pass usage (entry/exit times).
 Enhance the UI with better styling and user experience elements.
 
+**Home Screen/Login Screen**
 ![image](https://github.com/user-attachments/assets/6a2a495a-13c5-4b08-a4b5-71a0892cf300)
+
+**Student Dashboard**
+![image](https://github.com/user-attachments/assets/f96b0b79-cb8e-4d2b-bf3d-b654ade15d18)
+
+**Student Request Form** 
+![image](https://github.com/user-attachments/assets/a7915caa-15b0-4b76-9010-6811a789c817)
+
+**Teacher Dashboard**
+![image](https://github.com/user-attachments/assets/105987f7-97df-4786-aaee-c212b5db8abb)
+
+**Student QR Code Generation**
+![image](https://github.com/user-attachments/assets/397af076-e5f9-448e-8847-4f0b1f8ccd85)
+
+
 
